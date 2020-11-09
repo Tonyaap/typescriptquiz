@@ -23,6 +23,7 @@ body {
 
 export const Wrapper = styled.div`
   display: flex;
+  margin-top: 250px;
   flex-direction: column;
   align-items: center;
   > p {
@@ -44,7 +45,7 @@ export const Wrapper = styled.div`
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
     filter: drop-shadow(2px 2px #0085a3);
-    color: #fff;
+    color: #d35400;
     font-weight: 400;
     font-size: 70px;
     text-align: center;
@@ -63,5 +64,14 @@ export const Wrapper = styled.div`
   }
   .start {
     max-width: 200px;
+  }
+  .difficulty {
+    color: #fff;
+  }
+
+  h2 {
+    display: inline;
+    padding: 10px;
+    color: #c70039;
   }
 `;
