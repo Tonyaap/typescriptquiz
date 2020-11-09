@@ -20,15 +20,15 @@ const App = () => {
   const [userAnswers, setUserAnswers] = useState<AnswerObject[]>([]);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(true);
+  const [difficulty, setDifficultly] = useState(Difficulty.EASY);
+
+  console.log(difficulty);
 
   const startTrivia = async () => {
     setLoading(true);
     setGameOver(false);
 
-    const newQuestions = await fetchQuizQuestions(
-      TOTAL_QUESTIONS,
-      Difficulty.EASY
-    );
+    const newQuestions = await fetchQuizQuestions(TOTAL_QUESTIONS, difficulty);
 
     setQuestions(newQuestions);
     setScore(0);
@@ -56,6 +56,18 @@ const App = () => {
     }
   };
 
+  const easy = () => {
+    setDifficultly(Difficulty.EASY);
+  };
+
+  const medium = () => {
+    setDifficultly(Difficulty.MEDIUM);
+  };
+
+  const hard = () => {
+    setDifficultly(Difficulty.HARD);
+  };
+
   const nextQuestion = () => {
     //move to next question if not the last question
     const nextQuestion = number + 1;
@@ -71,13 +83,32 @@ const App = () => {
     <>
       <GlobalStyle />
       <Wrapper>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <h1> My First Quiz </h1>
+        <h1> The Quiz </h1>
+
+        {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
+          <div className="difficulty">
+            {difficulty === "easy" ? (
+              <h2>Easy</h2>
+            ) : (
+              <button className="easy" onClick={easy}>
+                {" "}
+                Easy
+              </button>
+            )}
+
+            {difficulty === "medium" ? (
+              <h2>Medium</h2>
+            ) : (
+              <button onClick={medium}> Medium</button>
+            )}
+            {difficulty === "hard" ? (
+              <h2>HARD</h2>
+            ) : (
+              <button onClick={hard}> Hard</button>
+            )}
+          </div>
+        ) : null}
+
         {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
           <button className="start" onClick={startTrivia}>
             Start
