@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# TypesScript Quiz!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Followed [this](https://www.youtube.com/watch?v=F2JCjVSZlG0&list=PLcDIoB_OEDSDoi-4QDBnoo1VscTUL_SxP&index=3) tutorial and created my very own Quiz with TypeScript and React!
+
+
+Enjoy!
 
 ## Available Scripts
 
